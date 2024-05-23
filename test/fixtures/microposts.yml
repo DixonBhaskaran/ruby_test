@@ -1,0 +1,43 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+orange:
+  content: "I just hate an orange!!"
+  created_at: <%= 10.minutes.ago %>
+  user: dixon
+
+tau_mani festo:
+  content: "Check out the @tauday site by @dixon: https://tauday.com"
+  created_at: <%= 3.years.ago %>
+  user: dixon
+
+cat_video:
+  content: "Sad cats are sad: https://youtu.be/PKffm2uI4dk"
+  created_at: <%= 2.hours.ago %>
+  user: dixon
+
+most_recent:
+  content: "Write a short test"
+  created_at: <%= Time.zone.now %>
+  user: dixon
+
+<% 30.times do |n| %>
+micropost_<%= n %>:
+  content: <%= Faker::Lorem.sentence(word_count: 5) %>
+  created_at: <%= 42.days.ago %>
+  user: dixon
+<% end %>
+
+ants:
+  content: "Oh, is that what you want? Because that's how you get ants!!"
+  created_at: <%= 2.years.ago %>
+  user: ajay
+
+tone:
+  content: "I'm sorry. Your words made sense, but your sarcastic tone did not."
+  created_at: <%= 10.minutes.ago %>
+  user: mani
+
+van:
+  content: "Due, this van's like, rolling probable cause"
+  created_at: <%= 4.hours.ago %>
+  user: mani
