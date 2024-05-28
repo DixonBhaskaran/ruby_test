@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+#empty
+one:
+  follower: dixon
+  followed: mani
+
+two:
+  follower: dixon
+  followed: hashna
+
+three:
+  follower: mani
+  followed: dixon
+
+four:
+  follower: ajay
+  followed: dixon

@@ -64,4 +64,33 @@ foo@bar_baz.com foo@bar+baz.com]
       @user.destroy
     end
   end
+
+  test "should follow and unfollow a user"do
+    dixon = users(:dixon)
+    ajay = users(:ajay)
+    assert_not dixon.following?(ajay)
+    dixon.follow(ajay)
+    assert dixon.following?(ajay)
+    assert ajay.followers.include?(dixon)
+    dixon.unfollow(ajay)
+    assert_not dixon.following?(ajay)
+  end
+
+  test "feed should have the right posts" do
+    dixon = users(:dixon)
+    ajay = users(:ajay)
+    mani = users(:mani)
+    #Posts from followed user
+    mani.microposts.each do |post_following|
+      assert dixon.feed.include?(post_following)
+    end
+    #Post from self
+    dixon.microposts.each do |post_self|
+      assert dixon.feed.include?(post_self)
+    end
+    #Post from unfollow users
+    ajay.microposts.each do |post_unfollowed|
+      assert_not dixon.feed.include?(post_unfollowed)
+    end
+  end
 end
